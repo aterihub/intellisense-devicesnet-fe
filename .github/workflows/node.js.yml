@@ -60,4 +60,4 @@ jobs:
             docker rmi sigitnurmajid/intellisense-devicesnet-fe:main
             docker pull sigitnurmajid/intellisense-devicesnet-fe:main
 
-            docker run -t -d -p 8080:80 --env-file .env.fe --name intellisense-devicesnet-fe sigitnurmajid/intellisense-devicesnet-fe:main
+            docker run -t -d -p 8080:80 --env-file .env.production --name intellisense-devicesnet-fe sigitnurmajid/intellisense-devicesnet-fe:main
