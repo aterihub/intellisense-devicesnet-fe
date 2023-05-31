@@ -12,7 +12,7 @@ import Setting from '@/views/Setting/Setting.vue'
 
 
 const routes = [
-  { path: '/', name: 'LoginForm', component: LoginForm, meta: { requiresAuth:false, title: 'Intellisense Connect - Login' } },
+  { path: '/', name: 'LoginForm', component: LoginForm, meta: { requiresAuth:false, title: 'Intellisense Devicesnet - Login' } },
   { path: '/reset-password', name: 'ResetPassword', component: ResetPassword, meta: { requiresAuth:false} },
   { path: '/realtime-map', name: 'MainMap', component: MainMap, meta: { requiresAuth:true } },
   { path: '/devices', name: 'DevicesCategory', component: DevicesCategory, meta: { requiresAuth:true } },
@@ -27,6 +27,17 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach(async (to, from,  next) => {
+  document.title = 'Intellisense DevicesNet | Connecting Assets'
+  if (to.meta.requiresAuth && !localStorage.getItem('auth.accessToken')){
+    next({ name: 'Login Page'})
+  } else if (to.meta.requiresAuth && localStorage.getItem('auth.accessToken') || to.meta.freeAccess){
+    next()
+  } else if (!to.meta.requiresAuth && localStorage.getItem('auth.accessToken')){
+    next({name: 'Devices List'})
+  } else next()
+  }) 
+  
 // router.beforeEach(async (to, from,  next) => {
 //   document.title = 'Intellisense Connect | Connecting Assets'
 //   if (to.meta.requiresAuth && !localStorage.getItem('auth.accessToken')){
