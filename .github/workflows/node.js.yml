@@ -18,7 +18,7 @@ jobs:
       
       - name: Create environment production
         run: |
-          echo "${{ secrets.ENV_FILE_PRODUCTION }}" > .env
+          echo "${{ secrets.ENV_FILE_PRODUCTION }}" > .env.production
 
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
@@ -55,11 +55,10 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            echo "${{ secrets.ENV_FILE_PRODUCTION }}" > .env.production
             docker stop intellisense-devicesnet-fe
             docker rm intellisense-devicesnet-fe
 
             docker rmi sigitnurmajid/intellisense-devicesnet-fe:main
             docker pull sigitnurmajid/intellisense-devicesnet-fe:main
 
-            docker run -t -d -p 8080:80 --env-file .env.production --name intellisense-devicesnet-fe sigitnurmajid/intellisense-devicesnet-fe:main
+            docker run -t -d -p 8080:80 --name intellisense-devicesnet-fe sigitnurmajid/intellisense-devicesnet-fe:main
