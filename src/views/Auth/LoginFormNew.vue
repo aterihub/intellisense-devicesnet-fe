@@ -8,7 +8,7 @@
   <div class="content">
     <div class="login-wrapper">
       <img src="@/assets/img/habitat-logo.png" id="logo" class="logo">
-      <h1 class="service-name">SIGIT NENEN</h1>
+      <h1 class="service-name">Login</h1>
       <VeeForm :validation-schema="schema" v-slot="{ handleSubmit }" as="div" class="w-full" >
         <form @submit="handleSubmit($event, onSubmit)" class="form-wrapper" >
             <BaseInput name="email" type="text" placeholder="you@email.com" class="outlined" label="Email"/>
