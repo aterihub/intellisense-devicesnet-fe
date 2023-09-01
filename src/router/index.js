@@ -19,7 +19,6 @@ const routes = [
   { path: '/devices/devices-list/:id', name: 'DevicesList', component: DevicesList, props: true, meta: { requiresAuth:true } },
   { path: '/devices/device-info/:id', name: 'DeviceDetails', component: DeviceDetails, props: true, meta: { requiresAuth:true } },
   { path: '/setting', name: 'Setting', component: Setting, meta: { requiresAuth:true } },
-
 ]
 
 const router = createRouter({
@@ -34,7 +33,7 @@ router.beforeEach(async (to, from,  next) => {
   } else if (to.meta.requiresAuth && localStorage.getItem('auth.token') || to.meta.freeAccess){
     next()
   } else if (!to.meta.requiresAuth && localStorage.getItem('auth.token')){
-    next({name: 'DevicesList'})
+    next({name: 'DevicesCategory'})
   } else next()
   }) 
   
