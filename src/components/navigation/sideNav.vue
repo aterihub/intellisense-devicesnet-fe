@@ -43,7 +43,7 @@ const props = defineProps({
   const authStore = useAuthStore();
 
   async function signOut() {
-      await authStore.signOut();
+      await authStore.signOut()
   }
   const goBack = () => {
       router.go(-1);

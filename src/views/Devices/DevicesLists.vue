@@ -3,22 +3,22 @@
   
   <div class="content">
     <div class="device-container">
-      <h1 class="title"> {{deviceTypeStore.deviceType.name}} </h1>
       <div class="table-wrap">
         <div class="table-header">
-          <div class="search-wrapper">
+          <h1 class="title"> {{deviceTypeStore.deviceType.name}} </h1>
+          <!-- <div class="search-wrapper">
             <SearchBar class="outlined" v-model="searchValue" />
-          </div>
+          </div> -->
           <div class="button-wrapper">
             <Button type="button" class="filled__green" label="Add New Device" @click="modalToggle" />
           </div>
         </div>
+        <SearchField class="outlined" v-model="searchValue" placeholder="Search ..."/>
         <EasyDataTable
         table-class-name="customize-table"
         :headers="header"
         :items="deviceTypeStore.deviceType.devices == null ? [] : deviceTypeStore.deviceType.devices"
         theme-color="#1363df"        
-        search-field="name"
         :search-value="searchValue"
         >
         <template #item-operation="item">
@@ -57,6 +57,7 @@
   import sideNav from '@/components/navigation/sideNav.vue';
   import NewDeviceModal from '@/components/modal/NewDeviceModal.vue'; 
   import DeleteDeviceModal from '@/components/modal/DeleteDeviceModal.vue'; 
+  import SearchField from '@/components/SearchField.vue'
   import SearchBar from '@/components/SearchBar.vue'
   import Button from '@/components/button/BaseButton.vue'
   import { onBeforeMount, ref} from 'vue';
@@ -127,12 +128,30 @@
   .operation {
     @apply flex gap-4
   }
-  
   .customize-table {
+  --easy-table-border:	1px solid #EBEBED;	
+  --easy-table-header-font-size: 14px;
+  --easy-table-header-background-color: transparent;
+  --easy-table-header-font-color:	#6E6E78;
+  --easy-table-header-height:	40px;
+
+  --easy-table-body-row-font-size:	14px;
+  --easy-table-body-font-color:	#3A3A3E;
+  --easy-table-body-row-height:	46px;
+
+  --easy-table-footer-font-size:	12px;
+  --easy-table-footer-height:	40px;
+  --easy-table-footer-font-color:	#6E6E78;
+  border-collapse: collapse;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+  /* .customize-table {
     --easy-table-header-font-size: 14px;
     --easy-table-header-background-color: #F7F7F7;
     --easy-table-header-font-color:	#3A3A3E;
-    /* --easy-table-row-border:	1px solid #D2DDEE; */
+    --easy-table-row-border:	1px solid #D2DDEE;
     --easy-table-header-height:	40px;
   
     --easy-table-body-row-font-size:	14px;
@@ -142,5 +161,5 @@
     --easy-table-footer-font-size:	12px;
     --easy-table-footer-height:	40px;
     --easy-table-footer-font-color:	#3A3A3E;
-  }
+  } */
 </style>

@@ -13,6 +13,8 @@
 <script>
 import VerticalTab from '@/components/tab/VerticalTab.vue' 
 import DeviceTypeSetting from '@/views/Setting/DeviceTypeSetting.vue'
+import GatewaySetting from '@/views/Setting/GatewaySetting.vue'
+import HookSetting from '@/views/Setting/HookSetting.vue'
 import DeviceInfo from '@/views/Devices/DeviceInfo.vue'
 import EditDevice from '@/views/Devices/EditDevice.vue'
 import sideNav from '@/components/navigation/sideNav.vue'
@@ -22,7 +24,7 @@ import { onMounted, ref } from 'vue';
 
   export default {
     components: {
-        VerticalTab,DeviceTypeSetting,DeviceInfo , EditDevice, sideNav, Button, SearchBar
+        VerticalTab,DeviceTypeSetting,DeviceInfo , EditDevice, sideNav, Button, SearchBar, GatewaySetting, HookSetting
     },
     props: ['id'],
 
@@ -34,12 +36,12 @@ import { onMounted, ref } from 'vue';
           value: 'DeviceTypeSetting'
         },        
         {
-          title: 'Setting A',
-          value: 'RealtimeMap'
+          title: 'Gateway',
+          value: 'GatewaySetting'
         },
         {
-          title: 'Setting B',
-          value: 'HeatMap'
+          title: 'Webhook Config',
+          value: 'HookSetting'
         },
         {
           title: 'Setting C',

@@ -44,7 +44,7 @@ export const useAuthStore = defineStore('auth', {
         this.status.message = 'Login Successful'
         this.status.code = res.data.status
         this.status.state = false
-        router.push({ name: 'DevicesCategory' });
+        router.push({ name: 'DevicesCategory' })
       } catch (err) {
         console.error(err)
         this.isLoading = false
@@ -98,7 +98,6 @@ export const useAuthStore = defineStore('auth', {
         console.error(err)
         return err
       }
-
     },
 
     async forgotPassword(data) {

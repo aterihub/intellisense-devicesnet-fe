@@ -13,7 +13,7 @@ export default {
   register(data) {
     return apiClient.post('register',data,config)
   },
-  logout() {
+  signOut() {
     return apiClient.get('logout',config)
   },
   forgotPassword(data) {

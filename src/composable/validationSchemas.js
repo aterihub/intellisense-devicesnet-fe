@@ -30,3 +30,8 @@ export const newTypeSchema = yup.object({
   name: yup.string().required().label('Type Name'),
   fields: yup.string().required().label('Fields'),
 });
+
+export const newGatewaySchema = yup.object({
+  serial_number: yup.string().required().label('Serial Number'),
+  name: yup.string().required().label('Name')
+});

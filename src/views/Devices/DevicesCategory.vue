@@ -7,9 +7,9 @@
           <div v-for="device in deviceTypeStore.deviceTypes" :key="device.id" class="card" @click="router.push({name: 'DevicesList', params: {id: device.id}})">
             <div class="flex items-center gap-4">
               <!-- <img class="w-[40px]" :src=device.imageSrc alt="SVG Image"> -->
-              <h1 class="font-bold text-2xl">{{device.name}}</h1>
+              <h1 class="font-semibold text-xl">{{device.name}}</h1>
             </div>
-            <p class="font-light">{{device.notes}}</p>
+            <p class="font-light text-xs">{{device.notes}}</p>
           </div>
         </div>
       </div> 
@@ -74,7 +74,7 @@
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
   @apply 
     rounded-md bg-white cursor-pointer
-    flex flex-col p-6 text-left border gap-4 
+    flex flex-col p-6 text-left border gap-2
     transition-all ease-in-out duration-300
 }
 .card:hover {
